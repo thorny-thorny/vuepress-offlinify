@@ -8,7 +8,7 @@ module.exports = {
         title: 'Theme',
         collapsable: false,
         children: [
-          '/hello-there',
+          '/',
           '/example',
         ],
       },

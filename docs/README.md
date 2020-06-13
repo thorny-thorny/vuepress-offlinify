@@ -4,7 +4,7 @@
 
 ## Chapter 1
 
-Foobar
+Foobar 5$
 
 ## Chapter 2
 

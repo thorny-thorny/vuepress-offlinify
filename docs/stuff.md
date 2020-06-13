@@ -6,6 +6,10 @@
 This is a tip
 :::
 
+## Links
+
+[Example](/example)
+
 ## Code
 
 ``` ts
