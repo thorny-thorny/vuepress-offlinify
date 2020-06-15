@@ -4,7 +4,7 @@
 
 ## Disclaimer
 
-Keep in mind the MIT license. This script is way too hacky to be called stable, you should think twice before using it for production.
+Keep in mind the MIT license. This script is way too hacky to be called stable, you should consider all risks before using it for production.
 
 ## Supported features
 
@@ -30,3 +30,7 @@ node offlify.js example-docs
 ## Limitations
 
 Routing is supposed to work for pages placed in the root of site only like `docs/example.html`. I doubt it would work with nested pages like `docs/reference/example.html`.
+
+## Roadmap
+
+I might check issues and PRs from time to time or fix scrolling and check favicon or publish it as NPM package, I dunno. It depends on repo stars and demand.
