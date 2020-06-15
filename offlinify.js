@@ -29,7 +29,8 @@ const offlinifyPage = fileName => {
     // Regular internal links
     const bodyMatch = data.match(/<body>(.*)<\/body>/ms)
     if (bodyMatch) {
-      const body = bodyMatch[1].replace(/(href)="(\/[^"]*)"/g, '$1=".$2.html"')
+      let body = bodyMatch[1].replace(/(href)="\/([^"#]*)(#[^"]*)"/g, '$1="./$2.html$3"')
+      body = body.replace(/(href)="\/([^"]*)"/g, '$1="./$2.html"')
       data = data.replace(/(<body>).*(<\/body>)/ms, `$1${body.replace(/\$/g, '$$$$')}$2`)
     }
     // Other links (styles and scripts)
