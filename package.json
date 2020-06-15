@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:dev": "vuepress dev examlpe-docs",
+    "docs:build": "vuepress build example-docs",
+    "docs:offlinify": "node offlinify.js example-docs"
   },
   "dependencies": {
     "vuepress": "1.5.1"

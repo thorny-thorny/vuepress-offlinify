@@ -1,7 +1,14 @@
 const path = require('path')
 const fs = require('fs')
+const process = require('process')
 
-const distPath = path.resolve('docs', '.vuepress', 'dist')
+const docsPath = process.argv[2]
+
+if (!docsPath) {
+  throw new Error('No path specified')
+}
+
+const distPath = path.resolve(docsPath, '.vuepress', 'dist')
 const assetsPath = path.resolve(distPath, 'assets')
 const stylesPath = path.resolve(assetsPath, 'css')
 const scriptsPath = path.resolve(assetsPath, 'js')
