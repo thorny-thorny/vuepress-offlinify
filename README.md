@@ -24,7 +24,7 @@ Keep in mind the MIT license. This script is way too hacky to be called stable, 
 
 Just copy-paste `offlinify.js` into root of your project and run it passing path to the site content like this:
 ``` js
-node offlify.js example-docs
+node offlinify.js example-docs
 ```
 
 ## Limitations
