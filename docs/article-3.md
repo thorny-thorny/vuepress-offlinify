@@ -1,6 +1,4 @@
-# Example
-
-It's too dangerous to go alone. Take [this](/#local-images)
+# Article 3
 
 ## Links
 
@@ -12,8 +10,8 @@ It's too dangerous to go alone. Take [this](/#local-images)
 
 [Home links](/#links)
 
-[Example links](#links)
+[Example links](/example#links)
 
-[Heading](#example)
+[Heading](#article-3)
 
 [VuePress](https://vuepress.vuejs.org/)

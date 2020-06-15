@@ -5,7 +5,7 @@ module.exports = {
     sidebarDepth: 2,
     sidebar: [
       {
-        title: 'Theme',
+        title: 'Group 1',
         collapsable: false,
         children: [
           '/',
@@ -13,10 +13,10 @@ module.exports = {
         ],
       },
       {
-        title: 'Advanced',
+        title: 'Group 2',
         collapsable: false,
         children: [
-          '/stuff',
+          '/article-3',
         ],
       },
     ],
