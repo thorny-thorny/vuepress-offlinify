@@ -29,8 +29,8 @@ const offlinifyPage = fileName => {
     // Regular internal links
     const bodyMatch = data.match(/<body>(.*)<\/body>/ms)
     if (bodyMatch) {
-      let body = bodyMatch[1].replace(/(href)="\/([^"#]*)(#[^"]*)"/g, '$1="./$2.html$3"')
-      body = body.replace(/(href)="\/([^"]*)"/g, '$1="./$2.html"')
+      let body = bodyMatch[1].replace(/(href)="\/([^"#]*?)(\.html)?(#[^"]*)"/g, (_, p1, p2, p3, p4) => `${p1}="./${p2}${p3 || '.html'}${p4}"`)
+      body = body.replace(/(href)="\/([^"]*?)(\.html)?"/g, (_, p1, p2, p3) => `${p1}="./${p2}${p3 || '.html'}"`)
       data = data.replace(/(<body>).*(<\/body>)/ms, `$1${body.replace(/\$/g, '$$$$')}$2`)
     }
     // Other links (styles and scripts)
@@ -60,7 +60,7 @@ const offlinifyAppScript = fileName => {
     // Relative href for links overrided by vue router
     data = data.replace(/(\Wc)=(o\.href)(\W)/g, '$1=($2.startsWith("/")?"."+(/^\\/(#.*)?$$/.test($2)?$2.replace(/^\\//,"/index.html"):$2):$2)$3')
     // Absolute path for vue router navigation
-    data = data.replace(/(function Ki\(t,e\){)/g, '$1t=window.location.href.replace(/\\/[^\\/]*$$/,"")+(t.match(/^\\/(#.*)?$$/)?t.replace(/^\\/(.*)$$/,"/index.html$$1"):t);')
+    data = data.replace(/(var n=window.history;)/g, '$1t=window.location.href.replace(/\\/[^\\/]*$$/,"")+(t.match(/^\\/(#.*)?$$/)?t.replace(/^\\/(.*)$$/,"/index.html$$1"):t);')
 
     return data
   })
