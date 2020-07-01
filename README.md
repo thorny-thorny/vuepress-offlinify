@@ -8,24 +8,26 @@ Keep in mind the MIT license. This script is way too hacky to be called stable, 
 
 ## Supported features
 
-`example-docs` contains simple VuePress site I've checked the script on. You can check the result in the releases.
+`example-docs` contains simple VuePress site I've checked the script on. You can check the offlinified result in the releases.
 
 | Feature \ VuePress version | 1.5.1 |
-| -------------------------- | ----- |
+| -------------------------- |:-----:|
 | Basic MD features | ✔️ |
 | Basic theme | ✔️ |
 | Sidebar and searchbar | ✔️ |
 | External and internal links | ✔️ |
 | Internal images | ✔️ |
-| Scrolling to anchor when navigating from another page | ❌ |
+| Scrolling to fragment when navigating from another page | ❌ |
 | Everything else | ❓ |
 
 ## Usage
 
-Just copy-paste `offlinify.js` into root of your project and run it passing path to the site content like this:
-``` js
-node offlinify.js example-docs
-```
+1. Build your docs
+1. Copy-paste `offlinify.js` into root of your project and run it passing path to the docs dir like this:
+   ``` js
+   node offlinify.js example-docs
+   ```
+1. Enjoy offlinified build at vuepress dist location
 
 ## Limitations
 
