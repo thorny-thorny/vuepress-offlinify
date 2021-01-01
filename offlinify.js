@@ -83,8 +83,7 @@ const offlinifyBarsScript = fileName => {
 
 const pages = fs.readdirSync(distPath)
 pages.forEach(page => {
-  const stats = fs.statSync(path.resolve(distPath, page))
-  if (stats.isFile()) {
+  if (page.endsWith('.html')) {
     offlinifyPage(page)
   }
 })
