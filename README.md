@@ -17,6 +17,7 @@ Keep in mind the MIT license. This script is way too hacky to be called stable, 
 | Sidebar and searchbar | ✔️ |
 | External and internal links | ✔️ |
 | Internal images | ✔️ |
+| Favicon | ✔️ |
 | Everything else | ❓ |
 
 ## Usage
@@ -34,4 +35,4 @@ Routing is supposed to work for pages placed in the root of site only like `docs
 
 ## Roadmap
 
-I might check issues and PRs from time to time or fix scrolling and check favicon or publish it as NPM package, I dunno. It depends on repo stars and demand.
+I might check issues and PRs from time to time or fix nested pages or publish it as NPM package, I dunno. It depends on repo stars and demand.
