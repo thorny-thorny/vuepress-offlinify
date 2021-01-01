@@ -1,4 +1,4 @@
-const path = require('path')
+]const path = require('path')
 const fs = require('fs')
 const process = require('process')
 
@@ -56,9 +56,9 @@ const offlinifyAppScript = fileName => {
     // Used for scripts path
     data = data.replace(/(\Wa\.p)="\/"(\W)/g, '$1=window.location.href.replace(/\\/[^\\/]*$$/, "/")$2')
     // Initial page path
-    data = data.replace(/(\We)=decodeURI\(window\.location\.pathname\)(\W)/g, '$1=decodeURI((window.location.origin+window.location.pathname).replace(/^.*?(\\/[^\\/]*)$$/,"$$1"))$2')
+    data = data.replace(/window\.location\.pathname/g, '(window.location.origin+window.location.pathname).replace(/^.*?(\\/[^\\/]*)$$/,"$$1")')
     // Relative href for links overrided by vue router
-    data = data.replace(/(\Wc)=(o\.href)(\W)/g, '$1=($2.startsWith("/")?"."+(/^\\/(#.*)?$$/.test($2)?$2.replace(/^\\//,"/index.html"):$2):$2)$3')
+    data = data.replace(/(\W[a-z])=(o\.href)(\W)/g, '$1=($2.startsWith("/")?"."+(/^\\/(#.*)?$$/.test($2)?$2.replace(/^\\//,"/index.html"):$2):$2)$3')
     // Absolute path for vue router navigation
     data = data.replace(/(var n=window.history;)/g, '$1t=window.location.href.replace(/\\/[^\\/]*$$/,"")+(t.match(/^\\/(#.*)?$$/)?t.replace(/^\\/(.*)$$/,"/index.html$$1"):t);')
 
