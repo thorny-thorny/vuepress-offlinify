@@ -17,7 +17,6 @@ Keep in mind the MIT license. This script is way too hacky to be called stable, 
 | Sidebar and searchbar | ✔️ |
 | External and internal links | ✔️ |
 | Internal images | ✔️ |
-| Scrolling to fragment when navigating from another page | ❌ |
 | Everything else | ❓ |
 
 ## Usage
