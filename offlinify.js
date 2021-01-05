@@ -8,7 +8,14 @@ if (!docsPath) {
   throw new Error('No path specified')
 }
 
-const distPath = path.resolve(docsPath, '.vuepress', 'dist')
+let distPath = path.resolve(docsPath, '.vuepress', 'dist')
+
+const destPath = require(path.resolve(docsPath, '.vuepress', 'config.js'))
+if (destPath.dest) {
+  // Use dest parameter on config.js if present
+  distPath = path.resolve(destPath.dest)
+}
+
 const assetsPath = path.resolve(distPath, 'assets')
 const stylesPath = path.resolve(assetsPath, 'css')
 const scriptsPath = path.resolve(assetsPath, 'js')
