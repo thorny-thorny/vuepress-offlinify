@@ -54,13 +54,13 @@ const offlinifyStyle = fileName => {
 const offlinifyAppScript = fileName => {
   processData(path.resolve(scriptsPath, fileName), data => {
     // Used for scripts path
-    data = data.replace(/(\Wa\.p)="\/"(\W)/g, '$1=window.location.href.replace(/\\/[^\\/]*$$/, "/")$2')
+    data = data.replace(/(Object\.prototype\.hasOwnProperty.call\([^\)]+\)},)([a-z]\.p)="\/"(\W)/g, '$1$2=window.location.href.replace(/\\/[^\\/]*$$/, "/")$3')
     // Initial page path
     data = data.replace(/window\.location\.pathname/g, '(window.location.origin+window.location.pathname).replace(/^.*?(\\/[^\\/]*)$$/,"$$1")')
     // Relative href for links overrided by vue router
-    data = data.replace(/(\W[a-z])=(o\.href)(\W)/g, '$1=($2.startsWith("/")?"."+(/^\\/(#.*)?$$/.test($2)?$2.replace(/^\\//,"/index.html"):$2):$2)$3')
+    data = data.replace(/([a-z]=[a-z]\.route,)([a-z])=([a-z]\.href)(\W)/g, '$1$2=($3.startsWith("/")?"."+(/^\\/(#.*)?$$/.test($3)?$3.replace(/^\\//,"/index.html"):$3):$3)$4')
     // Absolute path for vue router navigation
-    data = data.replace(/(var n=window.history;)/g, '$1t=window.location.href.replace(/\\/[^\\/]*$$/,"")+(t.match(/^\\/(#.*)?$$/)?t.replace(/^\\/(.*)$$/,"/index.html$$1"):t);')
+    data = data.replace(/(var )([a-z])(=window.history;)/g, '$1$2$3t=window.location.href.replace(/\\/[^\\/]*$$/,"")+(t.match(/^\\/(#.*)?$$/)?t.replace(/^\\/(.*)$$/,"/index.html$$1"):t);')
 
     return data
   })
@@ -71,9 +71,9 @@ const offlinifyAppScript = fileName => {
 const offlinifyBarsScript = fileName => {
   processData(path.resolve(scriptsPath, fileName), data => {
     // Search results links for pages
-    data = data.replace(/(\Wr.push)\((s)\)(\W)/g, '$1(Object.assign({},$2,{path:"."+($2.path==="/"?"/index.html":$2.path)}))$3')
+    data = data.replace(/(\.title\)&&)([a-z].push)\((s)\)(\W)/g, '$1$2(Object.assign({},$3,{path:"."+($3.path==="/"?"/index.html":$3.path)}))$4')
     // Search results links for chapters
-    data = data.replace(/(\Wpath):(s\.path)(\+"#"\+u\.slug\W)/g, '$1:"."+($2==="/"?"/index.html":$2)$3')
+    data = data.replace(/(\Wpath):([a-z]\.path)(\+"#"\+[a-z]\.slug)(,children:)/g, '$1:"."+($2==="/"?"/index.html":$2)$3$4')
 
     return data
   })
